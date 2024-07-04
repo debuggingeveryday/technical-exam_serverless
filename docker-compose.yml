@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  serverless:
+    build:
+      context: .
+      dockerfile: serverless.Dockerfile
+
+  app:
+    build:
+      context: .
+      dockerfile: flask.Dockerfile
+    volumes:
+      - ./Books:/Books
+    working_dir: /Books
